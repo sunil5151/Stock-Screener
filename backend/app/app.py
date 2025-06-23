@@ -166,60 +166,8 @@ async def upload_csv(
 
     return {"success": True, "message": "File uploaded", "file_path": file_path, "upload_id": upload_id}
 
-@app.post("/process-csv")
-async def process_csv(request: Request, user: str = Depends(get_logged_in_user)):
-    file_path = request.session.get("uploaded_csv")
-    upload_id = request.session.get("current_upload_id")
-    
-    if not file_path or not os.path.exists(file_path):
-        raise HTTPException(status_code=404, detail="No CSV file uploaded")
+# Remove this entire duplicate endpoint (approximately lines 169-224)
 
-    trading_system = TradingSystem()
-    try:
-        # Run your pipeline (no charts shown, just results)
-        results = trading_system.run_complete_analysis(
-            file_path=file_path,
-            lookahead_bars=5,
-            confirmation_bars=7,
-            ema_fast=9,
-            ema_slow=15,
-            big_candle_multiplier=2.5,
-            big_candle_lookback=10,
-            volume_multiplier=2.5,
-            volume_lookback=10,
-            show_chart=False,
-        )
-        
-        # Use the helper function to convert all numpy types
-        clean_results = convert_numpy_types(results)
-        
-        # Store results in session
-        request.session["last_results"] = {
-            "accuracy": clean_results["accuracy_results"],
-            "signals": clean_results["signals"],
-        }
-        
-        # Update history entry with results
-        if upload_id:
-            update_history_entry(user, upload_id, {
-                "processed": True,
-                "results": {
-                    "accuracy": clean_results["accuracy_results"],
-                    "signals_count": len(clean_results["signals"]),
-                }
-            })
-            
-            # Send email notification if user has email
-            await send_completion_email(user, upload_id, clean_results)
-        
-        return {
-            "success": True,
-            "results": clean_results["accuracy_results"],
-            "signals_count": len(clean_results["signals"]),
-            "upload_id": upload_id
-        }
-    except Exception as e:
-        return JSONResponse(status_code=400, content={"success": False, "error": str(e)})
 
 @app.post("/logout")
 async def logout(request: Request):
@@ -379,7 +327,6 @@ async def get_chart_html(
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Chart generation failed: {e}")
 # Alternative endpoint to serve chart as iframe source
-# Alternative endpoint to serve chart as iframe source
 @app.get("/chart-iframe")
 async def get_chart_iframe(
     request: Request, 
@@ -448,8 +395,8 @@ async def get_chart_iframe(
     # If we have a file path, generate the chart
     trading_system = TradingSystem()
     try:
-        # Use same parameters as before
-        output = trading_system.run_complete_analysis(
+        # First run the complete analysis
+        trading_system.run_complete_analysis(
             file_path=file_path,
             lookahead_bars=5,
             confirmation_bars=7,
@@ -461,64 +408,31 @@ async def get_chart_iframe(
             volume_lookback=10,
             show_chart=False,
         )
-        fig, table_fig = trading_system.create_chart(show_chart=False)
         
-        # Generate full HTML page for iframe
-        html_content = f"""
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <title>Trading Chart</title>
-            <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-            <style>
-                body {{
-                    margin: 0;
-                    padding: 10px;
-                    font-family: Arial, sans-serif;
-                    overflow: hidden;
-                }}
-                #chart-container {{
-                    width: 100%;
-                    height: 90vh;
-                    overflow: visible;
-                }}
-            </style>
-        </head>
-        <body>
-            <div id="chart-container">
-                {fig.to_html(include_plotlyjs=False, div_id="trading-chart", config={{'displayModeBar': True, 'responsive': True, 'scrollZoom': True}})}  
-            </div>
-            <script>
-                // Force redraw of chart after load to ensure all elements are visible
-                document.addEventListener('DOMContentLoaded', function() {{
-                    setTimeout(function() {{
-                        window.dispatchEvent(new Event('resize'));
-                    }}, 100);
-                }});
-            </script>
-        </body>
-        </html>
-        """
+        # Then get the chart
+        fig, _ = trading_system.create_chart(
+            lookahead_bars=5,
+            show_chart=False
+        )
         
-        # Save chart for future use
+        # Generate HTML content
+        html_content = fig.to_html(full_html=True, include_plotlyjs='cdn')
+        
+        # Save if upload_id exists
         if upload_id:
-            filename = f"{user}_chart_{upload_id}.html"
-            chart_path = os.path.join(CHART_DIR, filename)
-            with open(chart_path, "w", encoding="utf-8") as f:
+            chart_path = os.path.join(CHART_DIR, f"{upload_id}.html")
+            with open(chart_path, "w") as f:
                 f.write(html_content)
-            
-            # Update history entry
-            entry = get_history_entry(user, upload_id)
-            if entry:
-                if "chart_paths" not in entry:
-                    entry["chart_paths"] = {}
-                entry["chart_paths"]["html"] = chart_path
-                update_history_entry(user, upload_id, {"chart_paths": entry["chart_paths"]})
+            update_history_entry(user, upload_id, {"chart_paths": {"html": chart_path}})
         
         return Response(content=html_content, media_type="text/html")
-        
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Chart generation failed: {e}")
+        print(f"Chart generation failed: {e}")
+        return Response(
+            content=f"<html><body>Chart generation failed: {str(e)}</body></html>",
+            media_type="text/html",
+            status_code=500
+        )
 
 
 # Add this new endpoint after the chart-iframe endpoint

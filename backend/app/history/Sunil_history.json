@@ -202,5 +202,96 @@
       "signals_count": 8
     },
     "chart_paths": {}
+  },
+  {
+    "upload_id": "6c22dd95-3351-4aa1-ba3f-f0552ba136ef",
+    "timestamp": "2025-06-23T15:33:32.878044",
+    "original_filename": "2025-06-02T06-05_export.csv",
+    "file_path": "C:\\Users\\sunil\\Desktop\\project1\\Placement\\backend\\app\\uploads\\Sunil_2025-06-02T06-05_export.csv",
+    "processed": true,
+    "results": {
+      "accuracy": {
+        "accuracy_rate": 25.0,
+        "total_signals": 8,
+        "breakout_signals": 4,
+        "accurate_signals": 1,
+        "inaccurate_signals": 3
+      },
+      "signals_count": 8
+    },
+    "chart_paths": {}
+  },
+  {
+    "upload_id": "081e0801-e7cd-47df-be4d-0e250b7e0142",
+    "timestamp": "2025-06-23T15:40:44.172059",
+    "original_filename": "2025-06-02T06-05_export.csv",
+    "file_path": "C:\\Users\\sunil\\Desktop\\project1\\Placement\\backend\\app\\uploads\\Sunil_2025-06-02T06-05_export.csv",
+    "processed": false,
+    "results": null,
+    "chart_paths": {
+      "html": "C:\\Users\\sunil\\Desktop\\project1\\Placement\\backend\\app\\charts\\081e0801-e7cd-47df-be4d-0e250b7e0142.html"
+    }
+  },
+  {
+    "upload_id": "81b6271b-6f2f-4cda-9dd1-855a67a52c5a",
+    "timestamp": "2025-06-23T15:51:32.407442",
+    "original_filename": "2025-06-02T06-05_export.csv",
+    "file_path": "C:\\Users\\sunil\\Desktop\\project1\\Placement\\backend\\app\\uploads\\Sunil_2025-06-02T06-05_export.csv",
+    "processed": false,
+    "results": null,
+    "chart_paths": {
+      "html": "C:\\Users\\sunil\\Desktop\\project1\\Placement\\backend\\app\\charts\\81b6271b-6f2f-4cda-9dd1-855a67a52c5a.html"
+    }
+  },
+  {
+    "upload_id": "ecc0873b-530d-480e-93be-ae9aa799bcb6",
+    "timestamp": "2025-06-23T16:01:49.595819",
+    "original_filename": "2025-06-02T06-05_export.csv",
+    "file_path": "C:\\Users\\sunil\\Desktop\\project1\\Placement\\backend\\app\\uploads\\Sunil_2025-06-02T06-05_export.csv",
+    "processed": false,
+    "results": null,
+    "chart_paths": {}
+  },
+  {
+    "upload_id": "3ff34c01-237b-4830-a56e-6650dc27d7d0",
+    "timestamp": "2025-06-23T16:05:58.541526",
+    "original_filename": "2025-06-02T06-05_export.csv",
+    "file_path": "C:\\Users\\sunil\\Desktop\\project1\\Placement\\backend\\app\\uploads\\Sunil_2025-06-02T06-05_export.csv",
+    "processed": false,
+    "results": null,
+    "chart_paths": {
+      "html": "C:\\Users\\sunil\\Desktop\\project1\\Placement\\backend\\app\\charts\\3ff34c01-237b-4830-a56e-6650dc27d7d0.html"
+    }
+  },
+  {
+    "upload_id": "daf2ce8f-2041-4c80-af3c-2f30c62dde88",
+    "timestamp": "2025-06-23T16:09:50.578922",
+    "original_filename": "2025-06-02T06-05_export.csv",
+    "file_path": "C:\\Users\\sunil\\Desktop\\project1\\Placement\\backend\\app\\uploads\\Sunil_2025-06-02T06-05_export.csv",
+    "processed": false,
+    "results": null,
+    "chart_paths": {
+      "html": "C:\\Users\\sunil\\Desktop\\project1\\Placement\\backend\\app\\charts\\daf2ce8f-2041-4c80-af3c-2f30c62dde88.html"
+    }
+  },
+  {
+    "upload_id": "4baacfd4-ae23-4df2-8b3e-e549beffd45e",
+    "timestamp": "2025-06-23T16:22:48.534481",
+    "original_filename": "2025-06-02T06-05_export.csv",
+    "file_path": "C:\\Users\\sunil\\Desktop\\project1\\Placement\\backend\\app\\uploads\\Sunil_2025-06-02T06-05_export.csv",
+    "processed": false,
+    "results": null,
+    "chart_paths": {}
+  },
+  {
+    "upload_id": "8d04abce-a663-455e-b9be-92c742324ffa",
+    "timestamp": "2025-06-23T16:27:58.653465",
+    "original_filename": "2025-06-02T06-05_export.csv",
+    "file_path": "C:\\Users\\sunil\\Desktop\\project1\\Placement\\backend\\app\\uploads\\Sunil_2025-06-02T06-05_export.csv",
+    "processed": false,
+    "results": null,
+    "chart_paths": {
+      "html": "C:\\Users\\sunil\\Desktop\\project1\\Placement\\backend\\app\\charts\\8d04abce-a663-455e-b9be-92c742324ffa.html"
+    }
   }
 ]
