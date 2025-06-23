@@ -1,0 +1,8 @@
+itsdangerous
+fastapi
+uvicorn
+pandas
+plotly
+passlib
+python-multipart
+fastapi-mail
