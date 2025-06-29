@@ -3,6 +3,7 @@ from fastapi import FastAPI, Request, Response, Form, Depends, UploadFile, File,
 from fastapi.responses import JSONResponse, StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.sessions import SessionMiddleware
+
 import os
 import numpy as np 
 from dotenv import load_dotenv
@@ -15,6 +16,7 @@ from .technical_indicators import EnhancedSRDetector
 from .data_processor import DataProcessor
 from .technical_indicators import TechnicalIndicators
 from .signal_generator import SignalGenerator
+from .sector_app import SectorDataHandler
 from .backtester import Backtester
 from .chart_builder import ChartBuilder
 from .signal_table import SignalTable
@@ -435,6 +437,21 @@ async def get_chart_iframe(
         )
 
 
+# Add these endpoints after the existing endpoints
+
+@app.get("/sector-performance/{period}")
+async def get_sector_performance(period: str, user: str = Depends(get_logged_in_user)):
+    """Get sector performance data for the specified period"""
+    handler = SectorDataHandler()
+    data = handler.fetch_sector_data(period)
+    return data
+
+@app.get("/sector-summary/{period}")
+async def get_sector_summary(period: str, user: str = Depends(get_logged_in_user)):
+    """Get summary statistics for sector performance"""
+    handler = SectorDataHandler()
+    summary = handler.get_sector_summary(period)
+    return summary
 # Add this new endpoint after the chart-iframe endpoint
 @app.get("/chart-status")
 async def get_chart_status(

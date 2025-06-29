@@ -6,3 +6,5 @@ plotly
 passlib
 python-multipart
 fastapi-mail
+smartapi-python
+pyotp

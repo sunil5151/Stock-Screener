@@ -293,5 +293,58 @@
     "chart_paths": {
       "html": "C:\\Users\\sunil\\Desktop\\project1\\Placement\\backend\\app\\charts\\8d04abce-a663-455e-b9be-92c742324ffa.html"
     }
+  },
+  {
+    "upload_id": "7ef98a31-0a67-485e-8cae-41dacb250e14",
+    "timestamp": "2025-06-28T17:27:36.140194",
+    "original_filename": "2025-06-02T06-05_export.csv",
+    "file_path": "C:\\Users\\sunil\\Desktop\\project1\\Placement\\backend\\app\\uploads\\Sunil_2025-06-02T06-05_export.csv",
+    "processed": false,
+    "results": null,
+    "chart_paths": {}
+  },
+  {
+    "upload_id": "0017e906-382c-47a4-9637-e51b31ed08e0",
+    "timestamp": "2025-06-29T10:14:57.611453",
+    "original_filename": "2025-06-02T06-05_export.csv",
+    "file_path": "C:\\Users\\sunil\\Desktop\\project1\\Placement\\backend\\app\\uploads\\Sunil_2025-06-02T06-05_export.csv",
+    "processed": false,
+    "results": null,
+    "chart_paths": {
+      "html": "C:\\Users\\sunil\\Desktop\\project1\\Placement\\backend\\app\\charts\\0017e906-382c-47a4-9637-e51b31ed08e0.html"
+    }
+  },
+  {
+    "upload_id": "f00f91a6-6907-47ce-98bc-c3e57dd97ce2",
+    "timestamp": "2025-06-29T10:25:38.214266",
+    "original_filename": "2025-06-02T06-05_export.csv",
+    "file_path": "C:\\Users\\sunil\\Desktop\\project1\\Placement\\backend\\app\\uploads\\Sunil_2025-06-02T06-05_export.csv",
+    "processed": false,
+    "results": null,
+    "chart_paths": {
+      "html": "C:\\Users\\sunil\\Desktop\\project1\\Placement\\backend\\app\\charts\\f00f91a6-6907-47ce-98bc-c3e57dd97ce2.html"
+    }
+  },
+  {
+    "upload_id": "9306a028-052d-47ee-9ca8-413bd3b763c6",
+    "timestamp": "2025-06-29T11:12:33.636917",
+    "original_filename": "2025-06-04T11-47_export.csv",
+    "file_path": "C:\\Users\\sunil\\Desktop\\project1\\Placement\\backend\\app\\uploads\\Sunil_2025-06-04T11-47_export.csv",
+    "processed": false,
+    "results": null,
+    "chart_paths": {
+      "html": "C:\\Users\\sunil\\Desktop\\project1\\Placement\\backend\\app\\charts\\9306a028-052d-47ee-9ca8-413bd3b763c6.html"
+    }
+  },
+  {
+    "upload_id": "5709f697-106f-41d0-866e-f4b6c72c36d6",
+    "timestamp": "2025-06-29T12:38:07.902610",
+    "original_filename": "2025-06-02T06-05_export.csv",
+    "file_path": "C:\\Users\\sunil\\Desktop\\project1\\Placement\\backend\\app\\uploads\\Sunil_2025-06-02T06-05_export.csv",
+    "processed": false,
+    "results": null,
+    "chart_paths": {
+      "html": "C:\\Users\\sunil\\Desktop\\project1\\Placement\\backend\\app\\charts\\5709f697-106f-41d0-866e-f4b6c72c36d6.html"
+    }
   }
 ]
